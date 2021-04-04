@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: Azure-Samples/active-directory-verifiable-credentials
+      - uses: Azure-Samples/active-directory-verifiable-credentials@main
         with:
           owner: krylovlf
           base: main
