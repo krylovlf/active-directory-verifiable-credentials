@@ -13,11 +13,11 @@ on:
 env:
   AWS_REGION: us-east-2                     # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: vc                        # set this to your Amazon ECR repository name
-  ECS_SERVICE: VC-issuer-test               # set this to your Amazon ECS service name
+  ECS_SERVICE: VC-issuer                    # set this to your Amazon ECS service name
   ECS_CLUSTER: ECS-cluster-nodes            # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: VC-issuer-test       # set this to the path to your Amazon ECS task definition
+  ECS_TASK_DEFINITION: VC-issuer       # set this to the path to your Amazon ECS task definition
                                             # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: VC-issuer-container       # set this to the name of the container in the
+  CONTAINER_NAME: VC-issuer       # set this to the name of the container in the
                                             # containerDefinitions section of your task definition
   
 jobs:
@@ -58,7 +58,6 @@ jobs:
      - name: Download task definition
        run: |
         aws ecs describe-task-definition --task-definition ${{ env.ECS_TASK_DEFINITION }} --query taskDefinition > ${{ env.ECS_TASK_DEFINITION }}.json
-        ls -al
           
      - name: Fill in the new image ID in the Amazon ECS task definition
        id: task-def
