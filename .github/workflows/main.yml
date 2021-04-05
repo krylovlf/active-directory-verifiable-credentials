@@ -24,6 +24,6 @@ jobs:
 
           git remote add upstream https://github.com/Azure-Samples/active-directory-verifiable-credentials.git
           git fetch upstream
-          git pull upstream
+          git pull upstream main
 
           # etc
