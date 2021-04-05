@@ -49,6 +49,8 @@ jobs:
           # push it to ECR so that it can
           # be deployed to ECS.
           cd ./issuer/
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:issuer_$IMAGE_TAG .
+          docker tag $ECR_REGISTRY/$ECR_REPOSITORY:issuer_$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:issuer_latest
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:issuer_$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:issuer_latest
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
