@@ -27,12 +27,12 @@ jobs:
 
           # Neither forget the -b opt,
           # the feature/x ref is ambiguous at this stage
-          git checkout -b feature/x origin/feature/x
-          git merge --no-edit upstream/feature/x
-          git push origin feature/x
+          git checkout -b krylovlf/active-directory-verifiable-credentials/main Azure-Samples/active-directory-verifiable-credentials/main
+          git merge --no-edit krylovlf/active-directory-verifiable-credentials/main
+          git push origin Azure-Samples/active-directory-verifiable-credentials
 
-          git checkout master
-          git merge --no-edit upstream/master
-          git push origin master
+          git checkout main
+          git merge --no-edit active-directory-verifiable-credentials/main
+          git push origin main
 
           # etc
