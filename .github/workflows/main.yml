@@ -27,7 +27,7 @@ jobs:
 
           # Neither forget the -b opt,
           # the feature/x ref is ambiguous at this stage
-          git checkout -b krylovlf/active-directory-verifiable-credentials/main Azure-Samples/active-directory-verifiable-credentials/main
+          git checkout -b krylovlf/active-directory-verifiable-credentials Azure-Samples/active-directory-verifiable-credentials
           git merge --no-edit krylovlf/active-directory-verifiable-credentials/main
           git push origin Azure-Samples/active-directory-verifiable-credentials
 
