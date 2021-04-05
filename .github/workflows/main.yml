@@ -10,7 +10,7 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     steps:
-      - uses: Azure-Samples/active-directory-verifiable-credentials@main
+      - uses: actions/checkout@v2
       - name: Merge upstream
         run: |
           git config --global user.name 'krylovlf'
