@@ -53,18 +53,18 @@ jobs:
           docker tag $ECR_REGISTRY/$ECR_REPOSITORY:issuer_$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:issuer_latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:issuer_$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:issuer_latest
-          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:issuer_latest"
      
      - name: Download task definition
        run: |
-        aws ecs describe-task-definition --task-definition ${{ env.ECS_TASK_DEFINITION }} --query taskDefinition > ecs-task-definition.json
+        aws ecs describe-task-definition --task-definition ${{ env.ECS_TASK_DEFINITION }} --query taskDefinition > ${{ env.ECS_TASK_DEFINITION }}.json
         ls -al
           
      - name: Fill in the new image ID in the Amazon ECS task definition
        id: task-def
        uses: aws-actions/amazon-ecs-render-task-definition@v1
        with:
-          task-definition: ecs-task-definition.json
+          task-definition: ${{ env.ECS_TASK_DEFINITION }}.json
           container-name: ${{ env.CONTAINER_NAME }}
           image: ${{ steps.build-image.outputs.image }}
 
