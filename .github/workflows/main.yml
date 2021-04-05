@@ -1,4 +1,4 @@
-name: Sync Fork
+name: Sync-Fork
 
 on:
   #schedule:
@@ -6,6 +6,7 @@ on:
      # effective frequency you will get
    #- cron:  '*/5 * * * *'
   workflow_dispatch:
+   
 jobs:
   merge:
     runs-on: ubuntu-latest
@@ -24,6 +25,4 @@ jobs:
 
           git remote add upstream https://github.com/Azure-Samples/active-directory-verifiable-credentials.git
           git fetch upstream
-          git pull upstream main
-
-          # etc
+          git pull upstream main 
